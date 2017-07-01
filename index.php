@@ -9,7 +9,7 @@ require_once('Config.php');
 if ($resourceDomain && $resourceType && $resourceName) {
 
     if (in_array($resourceDomain, Config::$domains) && in_array($resourceType, Config::$type)) {
-        $dir = $resourceDomain . DIRECTORY_SEPARATOR . $resourceType;
+        $dir = $resourceDomain . DIRECTORY_SEPARATOR . $resourceType . DIRECTORY_SEPARATOR;
         if ($file = is_file($dir . $resourceName . '.' . $resourceType)) {
             header("Content-type: text/css", true);
             header("Content-Length: " . filesize($file));
@@ -17,7 +17,7 @@ if ($resourceDomain && $resourceType && $resourceName) {
             exit();
         } else {
             if ($debug == 1) {
-                throw new \Exception(' file :: ' . var_export($file) . ' fir::' . $dir);
+                throw new \Exception(' file :: ' . var_export($file) . ' Dir::' . $dir);
             }
         }
     } else {
