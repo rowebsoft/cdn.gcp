@@ -8,7 +8,7 @@ require_once('Config.php');
 
 if ($resourceDomain && $resourceType && $resourceName) {
 
-    if (in_array($resourceDomain, Config::DOMAINS) && in_array($resourceType, Config::TYPE)) {
+    if (in_array($resourceDomain, Config::$domains) && in_array($resourceType, Config::$type)) {
         $dir = $resourceDomain . DIRECTORY_SEPARATOR . $resourceType;
         if ($file = is_file($dir . $resourceName . '.' . $resourceType)) {
             header("Content-type: text/css", true);
@@ -24,8 +24,8 @@ if ($resourceDomain && $resourceType && $resourceName) {
         if ($debug == 1) {
             throw new \Exception(
                 'Not in array or not in config type cond 1::'
-                . var_export(in_array($resourceDomain, Config::DOMAINS)) . 'cond 2::'
-                . var_export(in_array($resourceType, Config::TYPE))
+                . var_export(in_array($resourceDomain, Config::$domains)) . 'cond 2::'
+                . var_export(in_array($resourceType, Config::$type))
             );
         }
     }

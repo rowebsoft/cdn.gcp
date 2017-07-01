@@ -6,14 +6,13 @@
  * Date: 7/1/2017
  * Time: 10:41 AM
  */
-
 class Config
 {
-    const DOMAINS = [
+    public static $domains = [
         'autoshack.ro'
     ];
 
-    const TYPE = [
+    public static $type = [
         'js',
         'css'
     ];
