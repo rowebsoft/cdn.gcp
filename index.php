@@ -17,7 +17,9 @@ if ($resourceDomain && $resourceType && $resourceName) {
             exit();
         } else {
             if ($debug == 1) {
-                throw new \Exception(' file :: ' . var_export($file) . ' Dir::' . $dir);
+                throw new \Exception(' file :: ' . var_export(is_file($dir . $resourceName . '.' . $resourceType))
+                    . ' file::' . $dir . $resourceName . '.' . $resourceType
+                );
             }
         }
     } else {
