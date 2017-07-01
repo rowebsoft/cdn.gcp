@@ -11,9 +11,6 @@ if ($resourceDomain && $resourceType && $resourceName) {
     if (in_array($resourceDomain, Config::$domains) && in_array($resourceType, Config::$type)) {
         $dir = $resourceDomain . DIRECTORY_SEPARATOR . $resourceType . DIRECTORY_SEPARATOR;
         $file = dirname(__FILE__) . DIRECTORY_SEPARATOR . $dir . $resourceName . '.' . $resourceType;
-        var_dump(is_file($file));
-        readfile($file);
-        die;
         if (is_file($file)) {
             header("Content-type: text/css", true);
             header("Content-Length: " . filesize($file));
